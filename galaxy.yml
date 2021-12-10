@@ -1,5 +1,5 @@
-namespace: "@NAMESPACE@"
-name: "@NAME@"
+namespace: ovirt
+name: ovirt
 version: 2.0.0
 authors:
     - Martin Necas <mnecas@redhat.com>
