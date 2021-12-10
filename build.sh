@@ -59,10 +59,10 @@ install() {
 }
 
 rename() {
-  echo "Renaming @NAMESPACE@ to $COLLECTION_NAMESPACE and @NAME@ to $COLLECTION_NAME"
+  echo "Renaming ovirt to $COLLECTION_NAMESPACE and ovirt to $COLLECTION_NAME"
   for file in $(find ./* -type f)
   do
-    sed -i -e "s/@NAMESPACE@/$COLLECTION_NAMESPACE/g" -e "s/@NAME@/$COLLECTION_NAME/g" $file
+    sed -i -e "s/ovirt/$COLLECTION_NAMESPACE/g" -e "s/ovirt/$COLLECTION_NAME/g" $file
   done
 }
 

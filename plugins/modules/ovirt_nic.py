@@ -71,7 +71,7 @@ options:
         description:
             - Defines if the NIC is linked to the virtual machine.
         type: bool
-extends_documentation_fragment: @NAMESPACE@.@NAME@.ovirt
+extends_documentation_fragment: ovirt.ovirt.ovirt
 '''
 
 EXAMPLES = '''
@@ -79,7 +79,7 @@ EXAMPLES = '''
 # look at ovirt_auth module to see how to reuse authentication:
 
 - name: Add NIC to VM
-  @NAMESPACE@.@NAME@.ovirt_nic:
+  ovirt.ovirt.ovirt_nic:
     state: present
     vm: myvm
     name: mynic
@@ -89,20 +89,20 @@ EXAMPLES = '''
     network: ovirtmgmt
 
 - name: Plug NIC to VM
-  @NAMESPACE@.@NAME@.ovirt_nic:
+  ovirt.ovirt.ovirt_nic:
     state: plugged
     vm: myvm
     name: mynic
 
 - name: Unplug NIC from VM
-  @NAMESPACE@.@NAME@.ovirt_nic:
+  ovirt.ovirt.ovirt_nic:
     state: unplugged
     linked: false
     vm: myvm
     name: mynic
 
 - name: Add NIC to template
-  @NAMESPACE@.@NAME@.ovirt_nic:
+  ovirt.ovirt.ovirt_nic:
     auth: "{{ ovirt_auth }}"
     state: present
     template: my_template
@@ -112,13 +112,13 @@ EXAMPLES = '''
     network: ovirtmgmt
 
 - name: Remove NIC from VM
-  @NAMESPACE@.@NAME@.ovirt_nic:
+  ovirt.ovirt.ovirt_nic:
     state: absent
     vm: myvm
     name: mynic
 
 # Change NIC Name
-- @NAMESPACE@.@NAME@.ovirt_nic:
+- ovirt.ovirt.ovirt_nic:
     id: 00000000-0000-0000-0000-000000000000
     name: "new_nic_name"
     vm: myvm
@@ -145,7 +145,7 @@ except ImportError:
 import traceback
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.@NAMESPACE@.@NAME@.plugins.module_utils.ovirt import (
+from ansible_collections.ovirt.ovirt.plugins.module_utils.ovirt import (
     BaseModule,
     check_sdk,
     create_connection,
